@@ -1,0 +1,16 @@
+
+.custom-card-header {
+    background-color: #1588c6; 
+    color: white; 
+    font-size: 24px; 
+    padding: 20px; 
+  }
+  
+  .custom-greeting {
+    font-weight: bold; 
+    font-size: 20px; 
+    color: #333;
+    margin: 20px 0; 
+  }
+  
+  
