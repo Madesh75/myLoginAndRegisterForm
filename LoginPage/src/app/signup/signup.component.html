@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          Sign Up
+        </div>
+        <div class="card-body">
+          <form [formGroup]="signupForms" (ngSubmit)="signedup()" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your Name"
+                minlength="2">
+              <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">Name
+                is Required</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" formControlName="email" class="form-control"
+                placeholder="Enter your email">
+              <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.touched || email.dirty)">
+                Email is Required</div>
+              <div class="form-text text-danger" *ngIf="email.errors?.['pattern'] && (email.touched || email.dirty)">
+                Invalid Email</div>
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" formControlName="dob" class="form-control">
+              <div class="form-text text-danger" *ngIf="dob?.errors?.['required']  && (dob?.touched || dob?.dirty)">dob
+                is required</div>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="male" formControlName="gender" value="male" class="form-check-input male-radio">
+                <label for="male" class="form-check-label">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="female" formControlName="gender" value="female" class="form-check-input">
+                <label for="female" class="form-check-label">Female</label>
+              </div>
+              <div class="form-text text-danger"
+                *ngIf="gender.errors?.['required']  && (gender.touched || gender.dirty)">Gender is required</div>
+            </div>
+            <div class="form-group">
+              <label for="language">Language</label>
+              <select id="language" formControlName="language" class="form-control">
+                <option value=" " disabled selected>Select your Language</option>
+                <option value="english">English</option>
+                <option value="tamil">Tamil</option>
+                <option value="hindi">Hindi</option>
+              </select>
+              <div class="form-text text-danger"
+                *ngIf="language.errors?.['required']  && (language.touched || language.dirty)">Language is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" formControlName="password" class="form-control"
+                placeholder="Enter your password" maxlength="8">
+              <div class="form-text text-danger"
+                *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">Password is Required</div>
+              <div class="form-text text-danger"
+                *ngIf="password.errors?.['minlength'] && (password.touched || password.dirty)">Password Must have 8
+                characters</div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="signedup()">Sign Up</button>
+            </div>
+            <div class="form-text text-danger" *ngIf="submitted && signupForms.invalid">Please provide required fields
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
